@@ -145,7 +145,7 @@ const Triangle::Segment& Triangle::medianAC()
 
 const Triangle::Segment& Triangle::medianBC()
 {
-    return getSegmentOrCalc(_bc_m_ptr, _c, getMidPointOrCalc(_bc_m_p_ptr, _b, _c));
+    return getSegmentOrCalc(_bc_m_ptr, _a, getMidPointOrCalc(_bc_m_p_ptr, _b, _c));
 }
 
 Triangle& Triangle::operator=(const Triangle& t)
