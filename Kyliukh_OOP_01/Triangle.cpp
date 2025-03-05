@@ -120,30 +120,30 @@ void Triangle::c(const Point& p)
      clearSideRelatedPtrs(_bc_m_p_ptr, _bc_m_ptr);*/
 }
 
-const Triangle::Segment& Triangle::ab()
-{
-     return getSegmentOrCalc(_ab_ptr, _a, _b);
-}
+const Triangle::Segment& Triangle::ab() { return getSegmentOrCalc(_ab_ptr, _a, _b); }
 
-const Triangle::Segment& Triangle::ac()
-{
-     return getSegmentOrCalc(_ac_ptr, _a, _c);
-}
+const Triangle::Segment& Triangle::ac() { return getSegmentOrCalc(_ac_ptr, _a, _c); }
 
-const Triangle::Segment& Triangle::bc()
-{
-     return getSegmentOrCalc(_bc_ptr, _b, _c);
-}
+const Triangle::Segment& Triangle::bc() { return getSegmentOrCalc(_bc_ptr, _b, _c); }
 
 const Point& Triangle::mPointAB() { return getMidPointOrCalc(_ab_m_p_ptr, _a, _b); }
 const Point& Triangle::mPointAC() { return getMidPointOrCalc(_ac_m_p_ptr, _a, _c); }
 const Point& Triangle::mPointBC() { return getMidPointOrCalc(_bc_m_p_ptr, _b, _c); }
 
-const Triangle::Segment& Triangle::medianAB() { return getSegmentOrCalc(_ab_m_ptr, _c, *_ab_m_p_ptr); }
+const Triangle::Segment& Triangle::medianAB() 
+{ 
+    return getSegmentOrCalc(_ab_m_ptr, _c, getMidPointOrCalc(_ab_m_p_ptr, _a, _b)); 
+}
 
-const Triangle::Segment& Triangle::medianAC() { return getSegmentOrCalc(_ac_m_ptr, _b, *_ac_m_p_ptr); }
+const Triangle::Segment& Triangle::medianAC() 
+{
+    return getSegmentOrCalc(_ac_m_ptr, _b, getMidPointOrCalc(_ac_m_p_ptr, _a, _c));
+}
 
-const Triangle::Segment& Triangle::medianBC() { return getSegmentOrCalc(_bc_m_ptr, _a, *_bc_m_p_ptr); }
+const Triangle::Segment& Triangle::medianBC()
+{
+    return getSegmentOrCalc(_bc_m_ptr, _c, getMidPointOrCalc(_bc_m_p_ptr, _b, _c));
+}
 
 Triangle& Triangle::operator=(const Triangle& t)
 {
