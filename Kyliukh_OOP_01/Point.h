@@ -29,6 +29,7 @@ ostream& operator<<(ostream&, const Point&);
 _NODISCARD const Point operator+ (const Point& u, const Point& v) ;
 _NODISCARD const Point operator- (const Point& u, const Point& v);
 bool operator==(const Point& u, const Point& v);
+bool compareCoords(const Point& u, const double x, const double y);
 bool operator!=(const Point& u, const Point& v);
 
 bool isSharingLine(const Point& a, const Point& b, const Point& c);

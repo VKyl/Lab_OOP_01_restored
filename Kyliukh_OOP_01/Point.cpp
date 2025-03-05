@@ -48,7 +48,12 @@ _NODISCARD const Point operator- (const Point& u, const Point& v)
 
 bool operator==(const Point& u, const Point& v)
 {
-	return (fabs(u.x() - v.x()) <= DBL_EPSILON) && (fabs(u.y() - v.y()) <= DBL_EPSILON);
+	return (fabs(u.x() - v.x() + u.y() - v.y()) <= DBL_EPSILON);
+}
+
+bool compareCoords(const Point& u, const double x, const double y)
+{
+	return fabs(u.x() - x + u.y() - y) <= DBL_EPSILON;
 }
 
 bool operator!=(const Point& u, const Point& v)

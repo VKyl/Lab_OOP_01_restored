@@ -52,8 +52,9 @@ const Point& Triangle::a() const { return _a; }
 
 void Triangle::a(const double x, const double y)
 {
-    if (_a.x() - x <= DBL_EPSILON && _a.y() - y <= DBL_EPSILON) return;
-     _a = Point(x, y);
+    if (compareCoords(_a, x, y)) return;
+    _a.x() = x;
+    _a.y() = y;
      assert(!isSharingLine(_a, _b, _c));
      reCalcMidPoint(_ab_m_p_ptr, _a, _b);
      reCalcMidPoint(_ac_m_p_ptr, _a, _c);
@@ -76,8 +77,9 @@ const Point& Triangle::b() const { return _b; }
 
 void Triangle::b(const double x, const double y)
 {
-    if (_b.x() - x <= DBL_EPSILON && _b.y() - y <= DBL_EPSILON) return;
-     _b = Point(x, y);
+    if (compareCoords(_b, x, y)) return;
+    _b.x() = x;
+    _b.y() = y;
      assert(!isSharingLine(_a, _b, _c));
      reCalcMidPoint(_ab_m_p_ptr, _a, _b);
      reCalcMidPoint(_bc_m_p_ptr, _b, _c);
@@ -100,8 +102,9 @@ const Point& Triangle::c() const { return _c; }
 
 void Triangle::c(const double x, const double y)
 {
-    if (_c.x() - x <= DBL_EPSILON && _c.y() - y <= DBL_EPSILON) return;
-     _c = Point(x, y);
+    if (compareCoords(_a, x, y)) return;
+    _c.x() = x;
+    _c.y() = y;
      assert(!isSharingLine(_a, _b, _c));
      reCalcMidPoint(_ab_m_p_ptr, _a, _c);
      reCalcMidPoint(_bc_m_p_ptr, _b, _c);
