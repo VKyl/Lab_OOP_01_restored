@@ -78,7 +78,7 @@ public:
 private:
 	
 	void clearTriangle(Triangle& t);
-	void clearSideRelatedPtrs(Point* m_p_ptr, Segment* m_ptr);
+	void clearSideRelatedPtrs(Point*& m_p_ptr, Segment*& m_ptr);
 	
 	void reCalcMidPoint(Point*& m_p_ptr, const Point& p1, const Point& p2);
 	const Point& getMidPointOrCalc(Point*& m_p_ptr, const Point& p1, const Point& p2);
@@ -89,7 +89,7 @@ ostream& operator<<(ostream& out, const Triangle& t);
 ostream& operator<<(ostream& out, const Triangle::Segment& s);
 
 template <typename T>
-void clearPtr(T* segment_ptr)
+void clearPtr(T*& segment_ptr)
 {
 	delete segment_ptr;
 	segment_ptr = nullptr;

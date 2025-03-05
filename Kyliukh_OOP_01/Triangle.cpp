@@ -58,8 +58,6 @@ void Triangle::a(const double x, const double y)
      assert(!isSharingLine(_a, _b, _c));
      reCalcMidPoint(_ab_m_p_ptr, _a, _b);
      reCalcMidPoint(_ac_m_p_ptr, _a, _c);
-     /*clearSideRelatedPtrs(_ab_m_p_ptr, _ab_m_ptr);
-     clearSideRelatedPtrs(_ac_m_p_ptr, _ac_m_ptr);*/
 }
 
 void Triangle::a(const Point& p)
@@ -69,8 +67,6 @@ void Triangle::a(const Point& p)
      assert(!isSharingLine(_a, _b, _c));
      reCalcMidPoint(_ab_m_p_ptr, _a, _b);
      reCalcMidPoint(_ac_m_p_ptr, _a, _c);
-     /*clearSideRelatedPtrs(_ab_m_p_ptr, _ab_m_ptr);
-     clearSideRelatedPtrs(_ac_m_p_ptr, _ac_m_ptr);*/
 }
 
 const Point& Triangle::b() const { return _b; }
@@ -83,8 +79,6 @@ void Triangle::b(const double x, const double y)
      assert(!isSharingLine(_a, _b, _c));
      reCalcMidPoint(_ab_m_p_ptr, _a, _b);
      reCalcMidPoint(_bc_m_p_ptr, _b, _c);
-     /*clearSideRelatedPtrs(_ab_m_p_ptr, _ab_m_ptr);
-     clearSideRelatedPtrs(_bc_m_p_ptr, _bc_m_ptr);*/
 }
 
 void Triangle::b(const Point& p)
@@ -94,8 +88,6 @@ void Triangle::b(const Point& p)
      assert(!isSharingLine(_a, _b, _c));
      reCalcMidPoint(_ab_m_p_ptr, _a, _b);
      reCalcMidPoint(_bc_m_p_ptr, _b, _c);
-     /*clearSideRelatedPtrs(_ab_m_p_ptr, _ab_m_ptr);
-     clearSideRelatedPtrs(_bc_m_p_ptr, _bc_m_ptr);*/
 }
 
 const Point& Triangle::c() const { return _c; }
@@ -108,8 +100,6 @@ void Triangle::c(const double x, const double y)
      assert(!isSharingLine(_a, _b, _c));
      reCalcMidPoint(_ab_m_p_ptr, _a, _c);
      reCalcMidPoint(_bc_m_p_ptr, _b, _c);
-     /*clearSideRelatedPtrs(_ab_m_p_ptr, _ab_m_ptr);
-     clearSideRelatedPtrs(_bc_m_p_ptr, _bc_m_ptr);*/
 }
 
 void Triangle::c(const Point& p)
@@ -119,8 +109,6 @@ void Triangle::c(const Point& p)
      assert(!isSharingLine(_a, _b, _c));
      reCalcMidPoint(_ac_m_p_ptr, _a, _c);
      reCalcMidPoint(_bc_m_p_ptr, _b, _c);
-     /*clearSideRelatedPtrs(_ac_m_p_ptr, _ac_m_ptr);
-     clearSideRelatedPtrs(_bc_m_p_ptr, _bc_m_ptr);*/
 }
 
 const Triangle::Segment& Triangle::ab() { return getSegmentOrCalc(_ab_ptr, _a, _b); }
@@ -174,7 +162,7 @@ void Triangle::clearTriangle(Triangle& t)
      t.c({0, 1});
 }
 
-void Triangle::clearSideRelatedPtrs(Point* m_p_ptr, Segment* m_ptr)
+void Triangle::clearSideRelatedPtrs(Point*& m_p_ptr, Segment*& m_ptr)
 {
     clearPtr(m_p_ptr);
     clearPtr(m_ptr);
@@ -182,7 +170,6 @@ void Triangle::clearSideRelatedPtrs(Point* m_p_ptr, Segment* m_ptr)
 
 const Point& Triangle::getMidPointOrCalc(Point*& m_p_ptr, const Point& p1, const Point& p2)
 {
-    //if (m_p_ptr == nullptr) m_p_ptr = new Point((p1.x() + p2.x()) / 2, (p1.y() + p2.y()) / 2);
     reCalcMidPoint(m_p_ptr, p1, p2);
     return *m_p_ptr;
 }
