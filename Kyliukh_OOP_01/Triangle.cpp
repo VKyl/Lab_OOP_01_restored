@@ -194,6 +194,7 @@ const Triangle::Segment& Triangle::getSegmentOrCalc(Segment* segment_ptr, const 
 
 void Triangle::reCalcMidPoint(Point* m_p_ptr, const Point& p1, const Point& p2)
 {
+    if (m_p_ptr == nullptr) m_p_ptr = new Point(0, 0);
      (*m_p_ptr).x() = (p1.x() + p2.x()) / 2;
      (*m_p_ptr).y() = (p1.y() + p2.y()) / 2;
 }
