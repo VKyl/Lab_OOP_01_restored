@@ -139,18 +139,18 @@ const Triangle::Segment& Triangle::medianBC()
 Triangle& Triangle::operator=(const Triangle& t)
 {
     if (this == &t) return *this;
-    a(t.a());
-    b(t.b());
-    c(t.c());
+    _a = t.a();
+    _b = t.b();
+    _c = t.c();
     return *this;
 }
 
 Triangle& Triangle::operator=(Triangle&& t) noexcept
 {
     if (this == &t) return *this;
-    a(t.a());
-    b(t.b());
-    c(t.c());
+    _a = t.a();
+    _b = t.b();
+    _c = t.c();
     clearTriangle(t);
     return *this;
 }
